@@ -1,0 +1,64 @@
+{
+  "name": "r3-collateral-wad18-reproducibility-capsule",
+  "version": "1.0.0",
+  "description": "R3 Collateral Management System - Pure WAD-18 Arithmetic with Deterministic Proofs. Zero floating-point. 32+ tests. Regulatory compliant (BCBS 239, SEC 2a-7, CFTC).",
+  "main": "build/src/CollateralManager.js",
+  "types": "build/src/CollateralManager.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node test.ts",
+    "test:determinism": "ts-node tests/test-determinism.ts",
+    "test:drift": "ts-node tests/test-drift.ts",
+    "test:wad18": "ts-node tests/test-wad18.ts",
+    "test:all": "npm run test && npm run test:determinism && npm run test:drift && npm run test:wad18",
+    "integration": "ts-node src/runCollateralCapsule.ts",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'",
+    "clean": "rm -rf build/"
+  },
+  "keywords": [
+    "collateral",
+    "WAD-18",
+    "fixed-point",
+    "deterministic",
+    "reproducible",
+    "bigint",
+    "BCBS-239",
+    "SEC-2a-7",
+    "CFTC",
+    "margin",
+    "haircut",
+    "SIMM",
+    "regulatory-compliance",
+    "cryptographic-proof"
+  ],
+  "author": "Michael Aaron Russell <michael@r3-collateral.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/r3-collateral/collateral-wad18.git"
+  },
+  "homepage": "https://github.com/r3-collateral/collateral-wad18#readme",
+  "bugs": {
+    "url": "https://github.com/r3-collateral/collateral-wad18/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "prettier": "^3.1.1",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
